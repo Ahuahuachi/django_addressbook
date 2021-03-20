@@ -9,7 +9,11 @@
   <body>
     <h1>Contacts</h1>
     {% for contact in object_list %}
-    <p>{{ contact }}</p>
+    <p>
+      <a href="{% url 'contact_detail' contact.pk %}">{{ contact }}</a>
+    </p>
     {% endfor %}
+
+    <p><a href="{% url 'contact_create' %}">New contact</a></p>
   </body>
 </html>
