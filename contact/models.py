@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Contact(models.Model):
@@ -10,3 +11,6 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"{self.last_name}, {self.first_name}"
+
+    def get_absolute_url(self):
+        return reverse("contact_detail", kwargs={"pk": self.pk})
