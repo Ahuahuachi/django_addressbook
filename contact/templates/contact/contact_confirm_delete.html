@@ -7,10 +7,10 @@
     <title>Kodemia Address Book</title>
   </head>
   <body>
-    <h1>New contact</h1>
-    <form method="POST">
-      {% csrf_token %} {{ form.as_p }}
-      <button type="submit">Submit</button>
+    <h1>Are you sure you want to delete {{ object }}?</h1>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit">Confirm</button>
     </form>
   </body>
 </html>
