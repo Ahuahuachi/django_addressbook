@@ -7,10 +7,19 @@
     <title>Kodemia Address Book</title>
   </head>
   <body>
-    <h1>New contact</h1>
+    <h1>{% if object %}Edit{% else %}New{% endif %} contact</h1>
     <form method="POST">
       {% csrf_token %} {{ form.as_p }}
       <button type="submit">Submit</button>
     </form>
+    <a
+      href="
+      {% if object %}
+        {% url 'contact_detail' object.pk %}
+      {% else %}
+        {% url 'contact_list' %}
+      {% endif %}"
+      >Back</a
+    >
   </body>
 </html>
